@@ -13,6 +13,10 @@ vet: fmt
 	go vet ./...
 .PHONY: vet
 
-build: vet
+ci: vet
+	golangci-lint run
+.PHONY: ci
+
+build: ci
 	go build -o hello_world main.go
 .PHONY: build
