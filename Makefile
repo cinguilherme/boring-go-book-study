@@ -1,21 +1,18 @@
-# Tooling
-lint:
+.DEFAULT_GOAL := build
+
+fmt:
+	go fmt ./...
+
+.PHONY: fmt
+
+lint: fmt
 	golint ./...
+.PHONY: lint
 
-vet:
+vet: fmt
 	go vet ./...
+.PHONY: vet
 
-ci:
-	golangci-lint
-
-pre-cmt:
-	go fmt;
-	goimports -l -w .; 
-	make lint && make vet
-
-# CMD's
-run:
-	go run main.go
-
-build:
+build: vet
 	go build -o hello_world main.go
+.PHONY: build
