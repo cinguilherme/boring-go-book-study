@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 func main() {
@@ -128,5 +129,66 @@ func main() {
 	var bb byte = 'a'
 	var as2 string = string(bb)
 	fmt.Println(ar, as, bb, as2)
+
+	fmt.Println("😄")
+
+	if ar == 'a' {
+		//ar := 'b'
+		fmt.Println(ar)
+	}
+	fmt.Println(ar)
+
+	//IFs
+	if li := rand.Intn(10); li == 0 {
+		fmt.Println("yes")
+	} else {
+		fmt.Println("No 😒")
+	}
+
+	// Fors
+	acc := 0
+	for i := 0; i < 10; i++ {
+		acc += i
+	}
+	fmt.Println(acc)
+
+	acc = 1
+	for acc < 100 {
+		acc *= 2
+	}
+	fmt.Println(acc)
+
+	// For range
+	evens := []int{2, 4, 6, 8, 10, 12}
+	for k := range evens {
+		fmt.Println(k)
+	}
+
+	uniques := map[string]bool{"fred": true, "wilma": false}
+	for k, v := range uniques {
+		fmt.Println(k, v)
+	}
+
+	m := map[string]int{
+		"a": 1,
+		"c": 3,
+		"b": 2,
+	}
+
+	for i := 0; i < 3; i++ {
+		fmt.Println("Loop", i)
+		for k, v := range m {
+			fmt.Println(k, v)
+		}
+	}
+
+	samples := []string{"string 1", "string 2"}
+
+	for _, sample := range samples {
+		for i, r := range sample {
+			fmt.Println(i, r, string(r))
+		}
+		fmt.Println()
+	}
 
 }
